@@ -16,7 +16,7 @@ COMMON_DIR = $(THISDIR)/../Common
 GIT = git
 DOTNET = dotnet
 
-BUILDMODE=Release
+BUILDMODE=Debug
 GITFLAGS = clone --depth=1
 DOTNETFLAGS = -nologo -v:q -c:$(BUILDMODE)
 GREEN = \033[0;32m
