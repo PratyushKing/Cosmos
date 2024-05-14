@@ -148,7 +148,6 @@ nuget-install:
 	@rm -r -f ~/.nuget/packages/cosmos.*/
 	@rm -r -f ~/.nuget/packages/il2cpu.*/
 
-	@$(DOTNET) nuget remove source "Cosmos Local Package Feed" || true
 	@$(DOTNET) nuget add source $(DESTDIR)/Packages/ -n "Cosmos Local Package Feed"
 
 .PHONY: template-install
