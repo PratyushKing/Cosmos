@@ -26,20 +26,11 @@ DEFAULT = \033[0m
 .PHONY: all
 all: $(IL2CPU_DIR) $(XSHARP_DIR) $(COMMON_DIR)
 	@printf "${YELLOW}Cosmos${DEFAULT} DevKit Installer\n"
-	@# Elapsed time is stored in a temporary file, deleted post-install.
-	@date +%s > _time_$@.txt
 	@$(MAKE) build
 	@$(MAKE) publish
 	@sudo $(MAKE) install
 	@$(MAKE) nuget-install
 	@$(MAKE) template-install
-	@printf "To create a Cosmos kernel, run \'dotnet new cosmosCSKernel -n \{name\}\''
-	@printf "Build log file saved to ${GREEN}$(THISDIR)/build${date}.log${DEFAULT}\n"
-	@printf "============================================\n"
-	@printf "| ${YELLOW}Cosmos${DEFAULT} has been installed successfully!  |\n"
-	@printf "============================================\n"
-	@printf "Took ${YELLOW}$$(($$(date +%s)-$$(cat  _time_$@.txt)))s${DEFAULT} to build\n"
-	@rm _time_$@.txt
 
 $(IL2CPU_DIR):
 	@printf "Cloning ${GREEN}Cosmos/IL2CPU${DEFAULT}\n"
